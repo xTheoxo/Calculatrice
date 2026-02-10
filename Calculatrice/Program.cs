@@ -73,6 +73,7 @@
                         div = Convert.ToInt32(Console.ReadLine());
                         resultat = nbre1 / div;
                         Console.WriteLine($"Le résultat de {nbre1} / {div} = {resultat:F2}");
+                        //err
                         break;
                 }
             }
