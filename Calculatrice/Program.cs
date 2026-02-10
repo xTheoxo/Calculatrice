@@ -11,8 +11,15 @@
             int reste = 0;
             float div = 0;
             float resultat;
+            int x = 0;
+            int y = 0;
 
-            while (choix != 6)
+            // tab[0,0] = nombre 1
+            // tab[0,1] = nombre 2
+            // tab[0,2] = résultat
+
+
+            while (choix != 7)
             {
                 Console.WriteLine("==================================================================================================");
                 Console.WriteLine("1.Additionner");
@@ -20,7 +27,8 @@
                 Console.WriteLine("3.Multiplier");
                 Console.WriteLine("4.Diviser avec reste");
                 Console.WriteLine("5.Diviser sans reste");
-                Console.WriteLine("6.Exit");
+                Console.WriteLine("6.Additionner de matrice de tailles égales");
+                Console.WriteLine("7.Exit");
                 Console.WriteLine("==================================================================================================");
                 Console.Write("> ");
 
@@ -73,7 +81,41 @@
                         div = Convert.ToInt32(Console.ReadLine());
                         resultat = nbre1 / div;
                         Console.WriteLine($"Le résultat de {nbre1} / {div} = {resultat:F2}");
-                        //err
+                        break;
+
+                    case 6:
+                        Console.WriteLine("Entrer la taille dses matrices ex : 2 puis 3 à la deuxème réponse");
+                        x = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Entrer le deuxieme nombre");
+                        y = Convert.ToInt32(Console.ReadLine());
+
+                        int[,] tab = new int[x, y];
+
+                        for (int j = 0; j < x; j++)
+                        {
+                            for (int i = 0; i < y; i++)
+                            {
+                                Console.WriteLine($"Entrer {j};{i}");
+
+                                tab[i, j] = Convert.ToInt32(Console.ReadLine());
+                            }
+                        }
+
+                        for (int j = 0; j < x; j++)
+                        {
+                            Console.WriteLine(" ");
+                            for (int i = 0; i < y; i++)
+                            {
+
+                                Console.Write($"{tab[i, j]} ");
+                            
+                            }
+                        }
+                        Console.WriteLine("");
+                        Console.WriteLine("");
+                        //div = Convert.ToInt32(Console.ReadLine());
+                        //resultat = nbre1 / div;
+                        //Console.WriteLine($"Le résultat de {nbre1} / {div} = {resultat:F2}");
                         break;
                 }
             }
