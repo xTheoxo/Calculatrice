@@ -19,7 +19,7 @@
             // tab[0,2] = résultat
 
 
-            while (choix != 7)
+            while (choix != 8 && choix != 7 )
             {
                 Console.WriteLine("==================================================================================================");
                 Console.WriteLine("1.Additionner");
@@ -28,7 +28,8 @@
                 Console.WriteLine("4.Diviser avec reste");
                 Console.WriteLine("5.Diviser sans reste");
                 Console.WriteLine("6.Additionner de matrice de tailles égales");
-                Console.WriteLine("7.Exit");
+                Console.WriteLine("7.Calcul de l'hypoténuse d'un triangle rectangle");
+                Console.WriteLine("8.Exit");
                 Console.WriteLine("==================================================================================================");
                 Console.Write("> ");
 
@@ -142,6 +143,14 @@
                         //div = Convert.ToInt32(Console.ReadLine());
                         //resultat = nbre1 / div;
                         //Console.WriteLine($"Le résultat de {nbre1} / {div} = {resultat:F2}");
+                        break;
+
+
+
+
+
+                    case 7: 
+                        Console.WriteLine("Soon");
                         break;
                 }
             }
