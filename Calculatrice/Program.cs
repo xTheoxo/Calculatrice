@@ -89,6 +89,8 @@
                         Console.WriteLine("Entrer le deuxieme nombre");
                         y = Convert.ToInt32(Console.ReadLine());
 
+                        // Premier tableau 
+                        Console.WriteLine("Première matrice :");
                         int[,] tab = new int[x, y];
 
                         for (int j = 0; j < x; j++)
@@ -97,18 +99,42 @@
                             {
                                 Console.WriteLine($"Entrer {j};{i}");
 
+                                tab[j, i] = Convert.ToInt32(Console.ReadLine());
+                            }
+                        }
+
+
+                        // Deuxième tableau
+                        Console.WriteLine("Deuxième matrice :");
+                        int[,] tab2 = new int[x, y];
+
+                        for (int i = 0; i < x; i++)
+                        {
+                            for (int j = 0; j < y; j++)
+                            {
+                                Console.WriteLine($"Entrer {i};{j}");
+
                                 tab[i, j] = Convert.ToInt32(Console.ReadLine());
                             }
                         }
 
-                        for (int j = 0; j < x; j++)
+                        for (int i = 0; i < x; i++)
                         {
                             Console.WriteLine(" ");
-                            for (int i = 0; i < y; i++)
+                            for (int j = 0; j < y; j++)
                             {
-
                                 Console.Write($"{tab[i, j]} ");
-                            
+                            }
+                        }
+
+                        Console.WriteLine(" ");
+
+                        for (int i = 0; i < x; i++)
+                        {
+                            Console.WriteLine(" ");
+                            for (int j = 0; j < y; j++)
+                            {
+                                Console.Write($"{tab[i, j]} ");
                             }
                         }
                         Console.WriteLine("");
