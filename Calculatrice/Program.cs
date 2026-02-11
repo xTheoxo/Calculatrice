@@ -10,6 +10,7 @@
             int nbre2 = 0;
             int reste = 0;
             float div = 0;
+            float div2 = 0;
             float resultat;
             int x = 0;
             int y = 0;
@@ -19,7 +20,7 @@
             // tab[0,2] = résultat
 
 
-            while (choix != 8 && choix != 7 )
+            while (choix != 8)
             {
                 Console.WriteLine("==================================================================================================");
                 Console.WriteLine("1.Additionner");
@@ -150,7 +151,17 @@
 
 
                     case 7: 
-                        Console.WriteLine("Soon");
+                        Console.WriteLine("Entre la longeur de votre triangle rectangle");
+                        div = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Entre la largeur de votre triangle rectangle");
+                        div2 = Convert.ToInt32(Console.ReadLine());
+
+                        div = div * div;
+                        div2 = div2 * div2;
+                        resultat = div + div2;
+                        resultat = (float)Math.Sqrt(resultat);
+
+                        Console.WriteLine($"L'hypoténuse est égale à {resultat:F2}");
                         break;
                 }
             }
