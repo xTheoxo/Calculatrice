@@ -4,24 +4,21 @@
     {
         private static void Main(string[] arg)
         {
-
             int choix = 1;
-            int nbre1 = 1;
-            int nbre2 = 2;
-            double nbre3 = 0;
-            double nbre4 = 0;
-            double resultat1 = 0;
-            int reste = 0;
-            float div = 0;
-            float div2 = 0;
+            int nbre1;
+            int nbre2;
+            double nbre3;
+            double nbre4;
+            double resultat1;
+            int reste;
+            float div;
+            float div2;
             float resultat;
-            int x = 0;
-            int y = 0;
+            int x,y = 0;
 
             // tab[0,0] = nombre 1
             // tab[0,1] = nombre 2
             // tab[0,2] = résultat
-
 
             while (choix != 9)
             {
@@ -39,45 +36,58 @@
                 Console.Write("> ");
 
                 choix = Convert.ToInt32(Console.ReadLine());
-                
-                void a()
+
+                Console.WriteLine(" ");
+
+                void initialisation_calcul()
                 {
                     Console.WriteLine("Entrer le premier nombre");
+                    Console.Write("> ");
                     nbre1 = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("Entrer le deuxieme nombre");
+                    Console.Write("> ");
                     nbre2 = Convert.ToInt32(Console.ReadLine());
                 }
-                
 
                 switch (choix)
                 {
+                    // Addition
                     case 1:
-                        a();
+                        Console.WriteLine("*Addition*");
+                        initialisation_calcul();
                         choix = nbre1 + nbre2;
                         Console.WriteLine($"Le résultat de {nbre1} + {nbre2} = {choix}");
                         break;
 
+                    // Soustraction
                     case 2:
-                        a();
+                        Console.WriteLine("*Soustraction*");
+                        initialisation_calcul();
                         choix = nbre1 - nbre2;
                         Console.WriteLine($"La différence de {nbre1} - {nbre2} = {choix}");
                         break;
 
+                    // Multiplication
                     case 3:
-                        a();
+                        Console.WriteLine("*Multiplication*");
+                        initialisation_calcul();
                         choix = nbre1 * nbre2;
                         Console.WriteLine($"Le produit de {nbre1} x {nbre2} = {choix}");
                         break;
 
+                    // Division avec reste
                     case 4:
-                        a();
+                        Console.WriteLine("*Division avec reste*");
+                        initialisation_calcul();
                         choix = nbre1 / nbre2;
                         reste = nbre1 % nbre2;
                         Console.WriteLine($"Le quotient de {nbre1} / {nbre2} = {choix}");
                         Console.WriteLine($"Et il reste {reste}");
                         break;
 
+                    // Division sans reste
                     case 5:
+                        Console.WriteLine("*Division sans reste*");
                         Console.WriteLine("Entrer le premier nombre");
                         nbre1 = Convert.ToInt32(Console.ReadLine());
                         Console.WriteLine("Entrer le deuxieme nombre");
@@ -85,8 +95,10 @@
                         resultat = nbre1 / div;
                         Console.WriteLine($"Le résultat de {nbre1} / {div} = {resultat:F2}");
                         break;
-                        
+
+                    // Calcul de la puissance d'un nombre
                     case 6:
+                        Console.WriteLine("*Calcul de la puissance d'un nombre*");
                         Console.WriteLine("Entrer le nombre");
                         nbre3 = Convert.ToDouble(Console.ReadLine());
                         Console.WriteLine("Entrer la puissance");
@@ -96,7 +108,7 @@
                         break;
 
                     case 7:
-                        Console.WriteLine("Entrer la taille dses matrices ex : 2 puis 3 à la deuxème réponse");
+                        Console.WriteLine("Entrer la taille des matrices ex : 2 puis 3 à la deuxème réponse");
                         x = Convert.ToInt32(Console.ReadLine());
                         Console.WriteLine("Entrer le deuxieme nombre");
                         y = Convert.ToInt32(Console.ReadLine());
@@ -115,7 +127,6 @@
                             }
                         }
 
-
                         // Deuxième tableau
                         Console.WriteLine("Deuxième matrice :");
                         int[,] tab2 = new int[x, y];
@@ -130,6 +141,7 @@
                             }
                         }
 
+                        // Affichage du tableau 1
                         for (int i = 0; i < x; i++)
                         {
                             Console.WriteLine(" ");
@@ -141,6 +153,7 @@
 
                         Console.WriteLine(" ");
 
+                        // Affichage du tableau 2
                         for (int i = 0; i < x; i++)
                         {
                             Console.WriteLine(" ");
@@ -153,8 +166,9 @@
                         Console.WriteLine("");
                         break;
 
-
+                    // Calcul de l'hypoténuse d'un triangle rectangle
                     case 8: 
+                        Console.WriteLine("*Calcul de l'hypoténuse d'un triangle rectangle*");
                         Console.WriteLine("Entrer la longeur de votre triangle rectangle");
                         div = Convert.ToInt32(Console.ReadLine());
                         Console.WriteLine("Entrer la largeur de votre triangle rectangle");
