@@ -4,9 +4,9 @@
     {
         private static void Main(string[] arg)
         {
-            int choix = 1;
-            int nbre1;
-            int nbre2;
+            int choix = 0;
+            int nbre1 = 0;
+            int nbre2 = 0;
             double nbre3;
             double nbre4;
             double resultat1;
@@ -20,7 +20,7 @@
             // tab[0,1] = nombre 2
             // tab[0,2] = résultat
 
-            while (choix != 9)
+            while (choix != 11)
             {
                 Console.WriteLine("==================================================================================================");
                 Console.WriteLine("1.Additionner");
@@ -28,17 +28,27 @@
                 Console.WriteLine("3.Multiplier");
                 Console.WriteLine("4.Diviser avec reste");
                 Console.WriteLine("5.Diviser sans reste");
-                Console.WriteLine("6.Additionner **");
-                Console.WriteLine("7.Additionner de matrice de tailles égales");
-                Console.WriteLine("8.Calcul de l'hypoténuse d'un triangle rectangle");
-                Console.WriteLine("9.Exit");
+                Console.WriteLine("6.Opposé d'un nombre");
+                Console.WriteLine("7.Calcul de la puissance d'un nombre");
+                Console.WriteLine("8.Addition de deux matrices de tailles égales (Pas fini)");
+                Console.WriteLine("9.Calcul de l'hypoténuse d'un triangle rectangle");
+                Console.WriteLine("10.Savoir si un triangle est rectangle");
+                Console.WriteLine("11.Exit");
                 Console.WriteLine("==================================================================================================");
                 Console.Write("> ");
 
-                choix = Convert.ToInt32(Console.ReadLine());
+                try
+                {
+                    choix = Convert.ToInt32(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.Write("Rentrer un nombre valide !");
+                }
 
                 Console.WriteLine(" ");
 
+                
                 void initialisation_calcul()
                 {
                     Console.WriteLine("Entrer le premier nombre");
@@ -48,13 +58,26 @@
                     Console.Write("> ");
                     nbre2 = Convert.ToInt32(Console.ReadLine());
                 }
+                void scan()
+                {
+                    try
+                    {
+                        initialisation_calcul();
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Rentrer un nombre valide !");
+                    }
+                }
 
                 switch (choix)
                 {
                     // Addition
                     case 1:
                         Console.WriteLine("*Addition*");
+                        //scan();
                         initialisation_calcul();
+                        
                         choix = nbre1 + nbre2;
                         Console.WriteLine($"Le résultat de {nbre1} + {nbre2} = {choix}");
                         break;
@@ -96,8 +119,25 @@
                         Console.WriteLine($"Le résultat de {nbre1} / {div} = {resultat:F2}");
                         break;
 
-                    // Calcul de la puissance d'un nombre
+                    // Opposé d'un nombre
                     case 6:
+                        Console.WriteLine("*Opposé d'un nombre*");
+                        Console.WriteLine("Entrer le nombre");
+                        nbre1 = Convert.ToInt32(Console.ReadLine());
+                        if (nbre1 < 0)
+                        {
+                            choix = Math.Abs(nbre1);
+                        }
+                        else
+                        {
+                            choix = nbre1 - nbre1 * 2;
+                        }
+
+                        Console.WriteLine($"L'opposé de {nbre1} est {choix}");
+                        break;
+
+                    // Calcul de la puissance d'un nombre
+                    case 7:
                         Console.WriteLine("*Calcul de la puissance d'un nombre*");
                         Console.WriteLine("Entrer le nombre");
                         nbre3 = Convert.ToDouble(Console.ReadLine());
@@ -107,7 +147,7 @@
                         Console.WriteLine($"Le résultat de {nbre3} ** {nbre4} = {resultat1}");
                         break;
 
-                    case 7:
+                    case 8:
                         Console.WriteLine("Entrer la taille des matrices ex : 2 puis 3 à la deuxème réponse");
                         x = Convert.ToInt32(Console.ReadLine());
                         Console.WriteLine("Entrer le deuxieme nombre");
@@ -167,7 +207,7 @@
                         break;
 
                     // Calcul de l'hypoténuse d'un triangle rectangle
-                    case 8: 
+                    case 9: 
                         Console.WriteLine("*Calcul de l'hypoténuse d'un triangle rectangle*");
                         Console.WriteLine("Entrer la longeur de votre triangle rectangle");
                         div = Convert.ToInt32(Console.ReadLine());
@@ -181,6 +221,36 @@
 
                         Console.WriteLine($"L'hypoténuse est égale à {resultat:F2}");
                         break;
+
+                    // Savoir si un triangle est rectangle
+                    case 10:
+                        Console.WriteLine("*Savoir si un triangle est rectangle*");
+                        Console.WriteLine("Entrer l'hypoténuse du triangle");
+                        Console.Write("> ");
+                        nbre1 = Convert.ToInt32(Console.ReadLine());
+                        nbre1 = nbre1 * nbre1;
+
+                        Console.WriteLine("Entrer la longeur du triangle");
+                        Console.Write("> ");
+                        nbre2 = Convert.ToInt32(Console.ReadLine());
+                        nbre2 = nbre2 * nbre2;
+
+                        Console.WriteLine("Entrer la largeur du triangle");
+                        Console.Write("> ");
+                        reste = Convert.ToInt32(Console.ReadLine());
+                        reste = reste * reste;
+
+                        reste = reste + nbre2;
+
+                        if (reste == nbre1)
+                        {
+                            Console.WriteLine("Le triangle est rectangle");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Le triangle n'est pas rectangle");
+                        }
+                            break;
                 }
             }
         }
